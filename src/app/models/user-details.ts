@@ -1,10 +1,10 @@
 export class UserDetails {
-    UserId: number;
-    EmpId: number;
-    Name: string;
-    ImageFilePath: string;
-    Role: string;
-    Timestamp: Date;
-    Username: string;
-    Password: string;
+    user_id: number;
+    emp_id: number;
+    name: string;
+    image_file_path: string;
+    role: string;
+    timestamp: Date;
+    user_name: string;
+    password: string;
 }

@@ -9,6 +9,12 @@ import { PaymentDetailsComponent } from './components/payment-details/payment-de
 import { FeedbackDetailsComponent } from './components/feedback-details/feedback-details.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AmountDetailsComponent } from './components/amount-details/amount-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +22,16 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     OrderDetailsComponent,
     PaymentDetailsComponent,
     FeedbackDetailsComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AmountDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    NgbModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
