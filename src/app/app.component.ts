@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { faBell, faCogs } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SOFA-UI';
+  faBell = faBell;
+  faCogs = faCogs;
+  constructor(private router: Router) {
+    this.router.navigate(['']);
+  }
 }
