@@ -17,6 +17,7 @@ import { AmountDetailsComponent } from './components/amount-details/amount-detai
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 import { VendorDashboardComponent } from './components/vendor-dashboard/vendor-dashboard.component';
 import { LoginDetailsComponent } from './components/login-details/login-details.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoginDetailsComponent } from './components/login-details/login-details.
     AmountDetailsComponent,
     EmployeeDashboardComponent,
     VendorDashboardComponent,
-    LoginDetailsComponent
+    LoginDetailsComponent,
+    ReminderComponent
   ],
   imports: [
     BrowserModule,
