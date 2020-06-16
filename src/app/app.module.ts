@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AmountDetailsComponent } from './components/amount-details/amount-details.component';
+import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
+import { VendorDashboardComponent } from './components/vendor-dashboard/vendor-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { AmountDetailsComponent } from './components/amount-details/amount-detai
     PaymentDetailsComponent,
     FeedbackDetailsComponent,
     UserDetailsComponent,
-    AmountDetailsComponent
+    AmountDetailsComponent,
+    EmployeeDashboardComponent,
+    VendorDashboardComponent
   ],
   imports: [
     BrowserModule,
