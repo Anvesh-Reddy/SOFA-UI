@@ -2,17 +2,15 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginDetailsComponent } from './components/login-details/login-details.component';
 
 
 const routes: Routes = [
-<<<<<<< HEAD
-  { path: 'dashboard', component: DashboardComponent  }
-=======
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'orders', component: OrderDetailsComponent},
-  {path: '**', redirectTo: 'dashboard'}
->>>>>>> 7c8326c730d6feec6be825c65fe1518a2fcf6d42
+  {path: 'login', component: LoginDetailsComponent},
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({
