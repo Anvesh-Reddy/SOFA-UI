@@ -16,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AmountDetailsComponent } from './components/amount-details/amount-details.component';
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 import { VendorDashboardComponent } from './components/vendor-dashboard/vendor-dashboard.component';
+import { LoginDetailsComponent } from './components/login-details/login-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { VendorDashboardComponent } from './components/vendor-dashboard/vendor-d
     UserDetailsComponent,
     AmountDetailsComponent,
     EmployeeDashboardComponent,
-    VendorDashboardComponent
+    VendorDashboardComponent,
+    LoginDetailsComponent
   ],
   imports: [
     BrowserModule,
