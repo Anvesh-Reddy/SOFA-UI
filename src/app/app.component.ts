@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   faBell = faBell;
   faCogs = faCogs;  
   showSplash = true;
+  graphData = {};
 
   constructor(private router: Router) {
     this.router.navigate(['']);
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {    
     setTimeout(()=> {
       this.showSplash = false;      
-    }, 2000);
+    }, 2000);    
     // document.getElementByID('splash').style.display = 'none';
     // console.log(this.myDiv.nativeElement.innerHTML);
   }

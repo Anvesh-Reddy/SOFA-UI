@@ -18,6 +18,8 @@ import { EmployeeDashboardComponent } from './components/employee-dashboard/empl
 import { VendorDashboardComponent } from './components/vendor-dashboard/vendor-dashboard.component';
 import { LoginDetailsComponent } from './components/login-details/login-details.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
     EmployeeDashboardComponent,
     VendorDashboardComponent,
     LoginDetailsComponent,
-    ReminderComponent
+    ReminderComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
     NgbModule,
     HttpClientModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

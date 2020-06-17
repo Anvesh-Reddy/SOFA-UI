@@ -1,16 +1,16 @@
 <!-- <app-order-details></app-order-details> -->
 <p class="mx-4 my-2"><b>Hi, Vendor!</b></p>
 <div class="container-fluid">
-    <div class="row justify-content-center px-4"  style="height: 288px;">
+    <div class="row justify-content-center px-4" style="height: 288px;">
         <div class="col-sm-7 border bg-light shadow">
             <div class="container-fluid">
                 <div class="row">
                     <h4 class='py-2'><b>Weekly Food Forecaset</b></h4>
-                    <img>
+                    <app-bar-chart [graphData]="forecastData"></app-bar-chart>
                 </div>
             </div>
         </div>
-        <div class="col-sm-1"> 
+        <div class="col-sm-1">
         </div>
         <div class="col-sm-4 border bg-light shadow">
             <h4 class='py-2'><b>Friday, 30 June 2020</b></h4>
@@ -28,23 +28,25 @@
             </div>
         </div>
     </div>
-    <div  style="height: 25px;"></div>
-    <div class="row justify-content-center px-4"  style="height: 230px;">
+    <div style="height: 25px;"></div>
+    <div class="row justify-content-center px-4" style="height: 230px;">
         <div class="col-sm-12 border bg-light shadow">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-7 px-0">
                         <h4 class='py-2'><b>Feedback</b></h4>
-                        <img>
+                        <app-bar-chart [graphData]="feedbackData"></app-bar-chart>
                     </div>
                     <div class="col-sm-1 px-0"></div>
                     <div class="col-sm-4 px-0">
                         <div class="row justify-content-center">
-                            <div class="col-sm-11 border bg-white my-4"  style="height: 178px;">
+                            <div class="col-sm-11 border bg-white my-4" style="height: 178px;">
                                 <div class="p-3">
                                     <div class="row justify-content-between">
                                         <h5>What they said</h5>
-                                        <h5>What they meant<div class="card border-0 bg-warning" style="width: 100%; height: 5px;"></div></h5>
+                                        <h5>What they meant<div class="card border-0 bg-warning"
+                                                style="width: 100%; height: 5px;"></div>
+                                        </h5>
                                     </div>
                                     <div class="row">
                                         <p>The comment goes here</p>
@@ -58,4 +60,3 @@
         </div>
     </div>
 </div>
-
