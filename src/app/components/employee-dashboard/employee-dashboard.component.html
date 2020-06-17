@@ -1,7 +1,7 @@
 <!-- <app-order-details></app-order-details> -->
 <p class="mx-4 my-2"><b>Hi, X AE A-12!</b></p>
 <div class="container-fluid">
-    <div class="row justify-content-md-between"  style="height: 547px;">
+    <div class="row justify-content-between" style="height: 547px;">
         
         <div class="col-sm-6 border rounded-radius-right bg-light shadow">
             <div class="container-fluid">
@@ -19,18 +19,42 @@
                         </div>
                         <div class="row mb-auto">
                             <p>Select Item</p>
-                            <div class="d-flex flex-row col-12">
+                            <div class="col-12" style="overflow-y: auto; height: 340px;">
                                 <div class="card-deck">
-                                    <div class="card btn-secondary-info col-12">
-                                        <div class="row">
-                                            <div class="col-4 p-0">
-                                                <img class="card-img-left img-thumbnail img-size" src="../../../assets/food_items/chicken_biryani.jpg" alt="Card image cap">
+                                    <div class="row w-100 justify-content-between mb-2" *ngFor="let foodItem of foodItems; let i = index">
+                                        <div class="col-6">
+                                            <div class="card p-2 h-100">
+                                                <div class="row align-items-center">
+                                                    <div class="col-4">
+                                                        <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="card-body p-0">
+                                                            <h5 class="card-title">{{foodItems[i]}}</h5>
+                                                            <p>...</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-1 p-0">
+                                                        <span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-8 p-0">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Item Name 1</h5>
-                                                    <p>...</p>
-                                                    <button class="btn btn-sm btn-primary">Place Order</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <div *ngIf="i+1 < foodItems.length" class="card p-2 h-100">
+                                                <div class="row align-items-center">
+                                                    <div class="col-4">
+                                                        <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="card-body p-0">
+                                                            <h5 class="card-title">{{foodItems[i+1]}}</h5>
+                                                            <p>...</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-1 p-0">
+                                                        <span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,24 +90,34 @@
             </div>
         </div>
         <div class="col-sm-3 border rounded-radius-left bg-light shadow">
-            <div class="container-fluid m-4">
-                <div class="row">
+            <div class="container-fluid">
+                <div class="row ml-2 my-2">
                     <h3 class='py-2'><b>Past Orders</b></h3>
-                    <div class="d-flex flex-row col-12">
+                    <div class="d-flex flex-column col-12" style="overflow-y: auto; height: 440px;">
                         <div class="card-deck">
-                            <div class="card btn-secondary-info col-12">
-                                <div class="row">
-                                    <div class="col-6 p-0">
-                                        <img class="card-img-left img-thumbnail img-size" src="../../../assets/food_items/chicken_biryani.jpg" alt="Card image cap">
-                                    </div>
-                                    <div class="col-6 p-0">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Item Name 1</h5>
-                                            <p>...</p>
+                            <div class="row w-100 mb-2" *ngFor="let pastOrder of pastOrders">
+                                <div class="card col-12 h-100">
+                                    <div class="row h-50 p-2">
+                                        <div class="col-4 p-0">
+                                            <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
+                                        </div>
+                                        <div class="col-8 p-0">
+                                            <div class="card-body p-0">
+                                                <h5 class="card-title">{{pastOrder.item_name}}</h5>
+                                                <p class="p-0 m-0">DOP: {{pastOrder.order_date}}</p>
+                                                <p class="p-0 m-0">Price: {{pastOrder.price}}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 mb-2">
-                                        <textarea class="form-control"></textarea>
+                                    <div class="row h-50 px-2 pb-2">
+                                        <div class="col-12 mb-2">
+                                            <div class="row mx-1 mb-1">
+                                                <span class="mx-1" id="happy" style="color: green;"><fa-icon [icon]="faSmile" size='lg' title="Happy"></fa-icon></span>
+                                                <span class="mx-1" id="meh" style="color: orange;"><fa-icon [icon]="faMeh" size='lg' title="Meh"></fa-icon></span>
+                                                <span class="mx-1" id="sad" style="color: red;"><fa-icon [icon]="faFrown" size='lg' title="Sad"></fa-icon></span>
+                                            </div>
+                                            <textarea class="form-control"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -16,8 +16,8 @@ export class OrderDetailsService {
   apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
-  getAvailableFoodItems() {
-    return this.http.get(this.apiUrl + 'get_ava_food', httpOptions);
+  getAvailableFoodItems(order_cat: string) {
+    return this.http.get(this.apiUrl + 'get_ava_food?order_cat=' + order_cat.toString(), httpOptions);
   }
 
   getRecommendedFoodItems(userId: any, currentDate: any) {
@@ -26,6 +26,10 @@ export class OrderDetailsService {
 
   getRatedFoodItems(userId: any, currentDate: any) {
     return this.http.post(this.apiUrl + 'get_rated_food', {user_id: userId, date: currentDate}, httpOptions);
+  }
+
+  getPastOrders(userId: any) {
+    return this.http.post(this.apiUrl + 'get_past_orders', {user_id: userId}, httpOptions);
   }
 
 }
