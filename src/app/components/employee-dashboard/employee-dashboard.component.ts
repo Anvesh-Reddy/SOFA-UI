@@ -53,6 +53,11 @@ export class EmployeeDashboardComponent implements OnInit {
     );
   }
 
+  updateCategory(orderCategory: string) {
+    this.categorySelected = orderCategory;
+    this.onCategorySelection();
+  }
+
   feedbackSentAlert() {
     Swal.fire({
       position: 'top-end',
