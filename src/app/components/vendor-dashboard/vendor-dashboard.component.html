@@ -1,9 +1,9 @@
 <!-- <app-order-details></app-order-details> -->
-<p class="mx-4 my-2"><b>Hi, Vendor!</b></p>
+<p class="mx-4 my-1"><b>Hi, Vendor!</b></p>
 <div class="container-fluid">
-    <div class="row justify-content-center px-4" style="height: 288px;">
+    <div class="row justify-content-center px-4 mb-2" style="height: 288px;">
         <div class="col-sm-7 border bg-light shadow">
-            <h4 class='py-2'><b>Weekly Forecast</b></h4>
+            <h5 class='py-1'><b>Weekly Forecast</b></h5>
             <app-bar-chart *ngIf="forecastDataLoaded" [graphData]="forecastData"></app-bar-chart>
         </div>
         <div class="col-sm-1">
@@ -23,14 +23,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div style="height: 25px;"></div>
+    </div>    
     <div class="row justify-content-center px-4" style="height: 230px;">
         <div class="col-sm-12 border bg-light shadow">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-7 px-0">
-                        <h4 class='py-2'><b>Feedback</b></h4>
+                        <h5 class='py-1'><b>Feedback</b></h5>
                         <app-bar-chart *ngIf="feedbackDataLoaded" [graphData]="feedbackData"></app-bar-chart>
                     </div>
                     <div class="col-sm-1 px-0"></div>
