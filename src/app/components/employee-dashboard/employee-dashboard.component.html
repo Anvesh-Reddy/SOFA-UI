@@ -1,4 +1,3 @@
-<!-- <app-order-details></app-order-details> -->
 <p class="mx-4 my-2"><b>Hi, X AE A-12!</b></p>
 <div class="container-fluid">
     <div class="row justify-content-between" style="height: 547px;">
@@ -13,8 +12,8 @@
                         <div class="row">
                             <p>Select Meal</p>
                             <div class="d-flex flex-row mb-3 col-12">
-                                <button class="btn btn-secondary mr-2" type="button">Lunch</button>
-                                <button class="btn btn-secondary ml-2" type="button">Dinner</button>
+                                <button class="btn btn-secondary mr-2" (click)="updateCategory('Lunch')" type="button">Lunch</button>
+                                <button class="btn btn-secondary ml-2" (click)="updateCategory('Dinner')" type="button">Dinner</button>
                             </div>
                         </div>
                         <div class="row mb-auto">
@@ -28,14 +27,14 @@
                                                     <div class="col-4">
                                                         <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-6 p-0">
                                                         <div class="card-body p-0">
                                                             <h5 class="card-title">{{foodItems[i]}}</h5>
                                                             <p>...</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-1 p-0">
-                                                        <span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span>
+                                                        <div type="button" (click)="showOrderPlacedAlert()" ><span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -53,7 +52,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-1 p-0">
-                                                        <span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span>
+                                                        <div type="button" (click)="showOrderPlacedAlert()" ><span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,14 +108,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row h-50 px-2 pb-2">
+                                    <div class="row h-50 px-2">
                                         <div class="col-12 mb-2">
-                                            <div class="row mx-1 mb-1">
-                                                <span class="mx-1" id="happy" style="color: green;"><fa-icon [icon]="faSmile" size='lg' title="Happy"></fa-icon></span>
-                                                <span class="mx-1" id="meh" style="color: orange;"><fa-icon [icon]="faMeh" size='lg' title="Meh"></fa-icon></span>
-                                                <span class="mx-1" id="sad" style="color: red;"><fa-icon [icon]="faFrown" size='lg' title="Sad"></fa-icon></span>
+                                            <div class="row d-flex flex-row mx-1 mb-1">
+                                                <span class="mx-1" id="happy" [style.color]="pastOrder.rating == 3? 'green':'silver'"><fa-icon [icon]="faSmile" size='lg' title="Happy"></fa-icon></span>
+                                                <span class="mx-1" id="meh" [style.color]="pastOrder.rating == 2? 'orange':'silver'"><fa-icon [icon]="faMeh" size='lg' title="Meh"></fa-icon></span>
+                                                <span class="mx-1 mr-auto" id="sad" [style.color]="pastOrder.rating == 1? 'red':'silver'"><fa-icon [icon]="faFrown" size='lg' title="Sad"></fa-icon></span>
+                                                <button class="btn btn-sm btn-primary" (click)="saveFeedback(pastOrder)">Save</button>
                                             </div>
-                                            <textarea class="form-control"></textarea>
+                                            <textarea class="form-control">{{pastOrder.feedback}}</textarea>
                                         </div>
                                     </div>
                                 </div>
