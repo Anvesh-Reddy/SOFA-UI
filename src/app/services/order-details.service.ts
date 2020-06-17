@@ -1,3 +1,4 @@
+import { PastOrder } from './../models/past-orders';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
@@ -32,4 +33,7 @@ export class OrderDetailsService {
     return this.http.post(this.apiUrl + 'get_past_orders', {user_id: userId}, httpOptions);
   }
 
+  saveOrderFeedback(pastOrder: PastOrder) {
+    return this.http.post(this.apiUrl + 'save_feedback', pastOrder, httpOptions);
+  }
 }
