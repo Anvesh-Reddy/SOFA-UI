@@ -6,7 +6,7 @@ import { LoginDetailsComponent } from './components/login-details/login-details.
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'orders', component: OrderDetailsComponent},
   {path: 'login', component: LoginDetailsComponent},

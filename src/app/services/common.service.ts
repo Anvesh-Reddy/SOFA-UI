@@ -5,5 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
 
+  private userId;
   constructor() { }
+
+  updateCreds(creds) {
+    this.userId = creds;
+  }
+
+  getCreds() {
+    return this.userId;
+  }
 }
