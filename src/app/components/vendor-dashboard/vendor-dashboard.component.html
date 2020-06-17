@@ -3,12 +3,8 @@
 <div class="container-fluid">
     <div class="row justify-content-center px-4" style="height: 288px;">
         <div class="col-sm-7 border bg-light shadow">
-            <div class="container-fluid">
-                <div class="row">
-                    <h4 class='py-2'><b>Weekly Food Forecaset</b></h4>
-                    <app-bar-chart [graphData]="forecastData"></app-bar-chart>
-                </div>
-            </div>
+            <h4 class='py-2'><b>Weekly Forecast</b></h4>
+            <app-bar-chart *ngIf="forecastDataLoaded" [graphData]="forecastData"></app-bar-chart>
         </div>
         <div class="col-sm-1">
         </div>
@@ -35,7 +31,7 @@
                 <div class="row">
                     <div class="col-sm-7 px-0">
                         <h4 class='py-2'><b>Feedback</b></h4>
-                        <app-bar-chart [graphData]="feedbackData"></app-bar-chart>
+                        <app-bar-chart *ngIf="feedbackDataLoaded" [graphData]="feedbackData"></app-bar-chart>
                     </div>
                     <div class="col-sm-1 px-0"></div>
                     <div class="col-sm-4 px-0">

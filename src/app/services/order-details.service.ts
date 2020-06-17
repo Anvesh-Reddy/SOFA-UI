@@ -32,4 +32,7 @@ export class OrderDetailsService {
     return this.http.post(this.apiUrl + 'get_past_orders', {user_id: userId}, httpOptions);
   }
 
+  getForecastData() {
+    return this.http.get(this.apiUrl + 'get_forecast_data', httpOptions);  
+  }
 }
