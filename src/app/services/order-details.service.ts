@@ -35,6 +35,7 @@ export class OrderDetailsService {
 
   saveOrderFeedback(pastOrder: PastOrder) {
     return this.http.post(this.apiUrl + 'save_feedback', pastOrder, httpOptions);
+  }
 
   getForecastData() {
     return this.http.get(this.apiUrl + 'get_forecast_data', httpOptions);
