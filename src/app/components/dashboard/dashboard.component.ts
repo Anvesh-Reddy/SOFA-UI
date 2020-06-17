@@ -12,9 +12,8 @@ export class DashboardComponent implements OnInit, OnChanges {
   empDashboard = true;
   constructor(private router: Router, private comService: CommonService) { }
 
-  ngOnInit() {
-    debugger;
-    if (this.comService.getCreds() == 'vendor') {
+  ngOnInit() {    
+    if (this.comService.getCreds() == 'v') {
       this.empDashboard = false;
     } else {
       this.empDashboard = true;

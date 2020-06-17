@@ -40,4 +40,8 @@ export class OrderDetailsService {
   getForecastData() {
     return this.http.get(this.apiUrl + 'get_forecast_data', httpOptions);
   }
+
+  getFeedbackComments() {
+    return this.http.get(this.apiUrl + 'get_feedbacks', httpOptions);
+  }
 }
