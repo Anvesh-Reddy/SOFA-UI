@@ -7,21 +7,17 @@ import { CommonService } from 'src/app/services/common.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit, OnChanges {
+export class DashboardComponent implements OnInit {
 
   empDashboard = true;
   constructor(private router: Router, private comService: CommonService) { }
 
   ngOnInit() {    
-    if (this.comService.getCreds() == 'v') {
+    if (this.comService.getCreds() === 'v') {
       this.empDashboard = false;
     } else {
       this.empDashboard = true;
     }
-  }
-
-  ngOnChanges() {
-    
   }
 
   goToLoginPage() {

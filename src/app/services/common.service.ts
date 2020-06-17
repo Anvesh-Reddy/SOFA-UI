@@ -8,7 +8,7 @@ export class CommonService {
   private userId;
   constructor() { }
 
-  updateCreds(creds) {
+  updateCreds(creds: string) {
     this.userId = creds;
   }
 

@@ -20,8 +20,8 @@
                             <p>Select Item</p>
                             <div class="col-12" style="overflow-y: auto; height: 340px;">
                                 <div class="card-deck">
-                                    <div class="row w-100 justify-content-between mb-2" *ngFor="let foodItem of foodItems; let i = index">
-                                        <div class="col-6">
+                                    <div class="row w-100 justify-content-between mb-2">
+                                        <div class="col-6 mb-2" *ngFor="let foodItem of foodItems; let i = index">
                                             <div class="card p-2 h-100">
                                                 <div class="row align-items-center">
                                                     <div class="col-4">
@@ -30,24 +30,6 @@
                                                     <div class="col-6 p-0">
                                                         <div class="card-body p-0">
                                                             <h5 class="card-title">{{foodItems[i]}}</h5>
-                                                            <p>...</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-1 p-0">
-                                                        <div type="button" (click)="showOrderPlacedAlert()" ><span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div *ngIf="i+1 < foodItems.length" class="card p-2 h-100">
-                                                <div class="row align-items-center">
-                                                    <div class="col-4">
-                                                        <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="card-body p-0">
-                                                            <h5 class="card-title">{{foodItems[i+1]}}</h5>
                                                             <p>...</p>
                                                         </div>
                                                     </div>
