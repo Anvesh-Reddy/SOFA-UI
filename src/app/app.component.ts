@@ -10,7 +10,7 @@ import { faBell, faCogs } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent implements OnInit {
   title = 'SOFA-UI';
   faBell = faBell;
-  faCogs = faCogs;  
+  faCogs = faCogs;
   showSplash = true;
   graphData = {};
 
@@ -18,10 +18,10 @@ export class AppComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  ngOnInit() {    
-    setTimeout(()=> {
-      this.showSplash = false;      
-    }, 2000);    
+  ngOnInit() {
+    setTimeout(() => {
+      this.showSplash = false;
+    }, 2000);
     // document.getElementByID('splash').style.display = 'none';
     // console.log(this.myDiv.nativeElement.innerHTML);
   }
