@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   empDashboard = true;
   constructor(private router: Router, private comService: CommonService) { }
 
-  ngOnInit() {    
+  ngOnInit() {
     if (this.comService.getCreds() === 'v') {
       this.empDashboard = false;
     } else {

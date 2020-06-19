@@ -1,19 +1,17 @@
 <!-- <app-order-details></app-order-details> -->
-<p class="mx-4 my-1"><b>Hi, Vendor!</b></p>
+<h4 class="mx-4 my-4">Hi, Vendor!</h4>
 <div class="container-fluid">
-    <div class="row justify-content-center px-4 mb-2" style="height: 288px;">
-        <div class="col-sm-7 border bg-light shadow">
-            <h5 class='py-1'><b>Weekly Forecast</b></h5>
+    <div class="row d-flex flex-row px-4 mb-4" style="height: 288px;">
+        <div class="border rounded-radius bg-light shadow mr-auto px-3" style="width: 900px;">
+            <h5 class='py-2'><b>Weekly Forecast</b></h5>
             <app-bar-chart *ngIf="forecastDataLoaded" [graphData]="forecastData"></app-bar-chart>
         </div>
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-4 border bg-light shadow">
-            <h4 class='py-2'><b>Friday, 30 June 2020</b></h4>
+        <div class="border rounded-radius bg-light shadow w-30 ml-auto px-3" style="width: 550px;">
+            <h5 class='py-2'><b>Friday, 30 June 2020</b></h5>
             <div class="row mb-2">
                 <div class="card-deck col-12">
                     <div class="col-6">
-                        <div class="card btn-secondary-info p-2">
+                        <div class="card p-2 w-100">
                             <div class="row m-1">
                                 <h5>12</h5>
                             </div>
@@ -23,7 +21,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="card btn-secondary-info p-2">
+                        <div class="card p-2 w-100">
                             <div class="row m-1">
                                 <h5>24</h5>
                             </div>
@@ -37,7 +35,7 @@
             <div class="row mb-2">
                 <div class="card-deck col-12">
                     <div class="col-6">
-                        <div class="card btn-secondary-info p-2">
+                        <div class="card p-2 w-100">
                             <div class="row m-1">
                                 <h5>10</h5>
                             </div>
@@ -51,18 +49,17 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center px-4" style="height: 230px;">
-        <div class="col-sm-12 border bg-light shadow">
+    <div class="row justify-content-center px-4" style="height: 250px;">
+        <div class="col-sm-12 border rounded-radius bg-light shadow">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-7 px-0">
-                        <h5 class='py-1'><b>Feedback</b></h5>
+                <div class="row d-flex flex-row">
+                    <div class="col-sm-7 px-0 mr-auto">
+                        <h5 class='py-2'><b>Feedback</b></h5>
                         <app-bar-chart *ngIf="feedbackDataLoaded" [graphData]="feedbackData"></app-bar-chart>
                     </div>
-                    <div class="col-sm-1 px-0"></div>
                     <div class="col-sm-4 px-0">
-                        <div class="row justify-content-center">
-                            <div class="col-sm-11 border bg-white my-4" style="height: 178px;">
+                        <div class="row d-flex flex-row h-100 align-items-center" style="height: 178px;">
+                            <div class="col-sm-11 border bg-white">
                                 <div class="p-3">
                                     <div class="row justify-content-between h-40">
                                         <h5>What they said</h5>

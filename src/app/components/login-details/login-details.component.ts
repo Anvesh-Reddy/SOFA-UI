@@ -15,9 +15,9 @@ export class LoginDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(formdata) {    
+  onSubmit(formdata) {
     console.log(this.userId);
-    this.comService.updateCreds(this.userId);    
+    this.comService.updateCreds(this.userId);
     this.router.navigate(['/dashboard']);
   }
 
