@@ -12,25 +12,30 @@
                         <div class="row">
                             <p>Select Meal</p>
                             <div class="d-flex flex-row mb-3 col-12">
-                                <button class="btn btn-secondary mr-2" (click)="updateCategory('Lunch')" type="button">Lunch</button>
-                                <button class="btn btn-secondary ml-2" (click)="updateCategory('Dinner')" type="button">Dinner</button>
+                                <button class="btn btn-primary mr-2" [disabled]="categorySelected == 'Lunch'" [class.btn-secondary]="categorySelected == 'Lunch'" (click)="updateCategory('Lunch')" type="button">Lunch</button>
+                                <button class="btn btn-primary ml-2" [disabled]="categorySelected == 'Dinner'" [class.btn-secondary]="categorySelected == 'Dinner'" (click)="updateCategory('Dinner')" type="button">Dinner</button>
                             </div>
                         </div>
-                        <div class="row mb-auto">
+                        <div class="row mb-auto w-100">
                             <p>Select Item</p>
                             <div class="col-12" style="overflow-y: auto; height: 340px;">
                                 <div class="card-deck">
                                     <div class="row w-100 justify-content-between mb-2">
                                         <div class="col-6 mb-2" *ngFor="let foodItem of foodItems; let i = index">
                                             <div class="card p-2 h-100">
+                                                <!-- <div *ngIf="foodItem.item_name == 'Chicken Biryani'" class="row" style="position: relative; margin-top:2px;">
+                                                    <div class="col-4">
+                                                        <span class="badge badge-primary">Best Seller #1</span>
+                                                    </div>
+                                                </div> -->
                                                 <div class="row align-items-center">
                                                     <div class="col-4">
                                                         <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
                                                     </div>
                                                     <div class="col-6 p-0">
                                                         <div class="card-body p-0">
-                                                            <h5 class="card-title">{{foodItems[i]}}</h5>
-                                                            <p>...</p>
+                                                            <h5 class="card-title">{{foodItem.item_name}}</h5>
+                                                            <p class="p-0 m-0">Price: {{foodItem.price}}</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-1 p-0">
@@ -50,22 +55,25 @@
         
         <div class="col-sm-2 d-flex flex-column">
             <div class="row border rounded-radius mb-auto bg-light shadow" style="height: 268px;">
-                <div class="container-fluid m-4">
+                <div class="container-fluid m-4 d-flex flex-column">
                     <div class="row">
                         <h3 class='py-2'><b>Due Amount</b></h3>
                     </div>
                     <div class="row">
                         <p>You ate 500 Rs/- worth of free food</p>
                     </div>
-                    <div class="row">
-                        <p>PAY UP!</p>
+                    <div class="row mt-auto">
+                        <button class="btn btn-outline-success btn-sm" (click)="performPaymentAlert()"><b>PAY UP!</b></button>
                     </div>
                 </div>
             </div>
             <div class="row border rounded-radius mt-auto bg-light shadow" style="height: 268px;">
                 <div class="container-fluid m-4">
                     <div class="row">
-                        <h3 class='py-2'><b>Announcement</b></h3>
+                        <h3 class='py-2'><b>Announcements</b></h3>
+                    </div>
+                    <div class="row">
+                        <p>Happy Birthday!</p>
                     </div>
                 </div>
             </div>
@@ -93,12 +101,12 @@
                                     <div class="row h-50 px-2">
                                         <div class="col-12 mb-2">
                                             <div class="row d-flex flex-row mx-1 mb-1">
-                                                <span class="mx-1" id="happy" [style.color]="pastOrder.rating == 3? 'green':'silver'"><fa-icon [icon]="faSmile" size='lg' title="Happy"></fa-icon></span>
-                                                <span class="mx-1" id="meh" [style.color]="pastOrder.rating == 2? 'orange':'silver'"><fa-icon [icon]="faMeh" size='lg' title="Meh"></fa-icon></span>
-                                                <span class="mx-1 mr-auto" id="sad" [style.color]="pastOrder.rating == 1? 'red':'silver'"><fa-icon [icon]="faFrown" size='lg' title="Sad"></fa-icon></span>
+                                                <span class="mx-1" id="happy" (click)="updateRating(3, pastOrder.order_id)" [style.color]="pastOrder.rating == 3? 'green':'silver'"><fa-icon [icon]="faSmile" size='lg' title="Happy"></fa-icon></span>
+                                                <span class="mx-1" id="meh" (click)="updateRating(2, pastOrder.order_id)" [style.color]="pastOrder.rating == 2? 'orange':'silver'"><fa-icon [icon]="faMeh" size='lg' title="Meh"></fa-icon></span>
+                                                <span class="mx-1 mr-auto" id="sad" (click)="updateRating(1, pastOrder.order_id)" [style.color]="pastOrder.rating == 1? 'red':'silver'"><fa-icon [icon]="faFrown" size='lg' title="Sad"></fa-icon></span>
                                                 <button class="btn btn-sm btn-primary" (click)="saveFeedback(pastOrder)">Save</button>
                                             </div>
-                                            <textarea class="form-control">{{pastOrder.feedback}}</textarea>
+                                            <textarea class="form-control" [(ngModel)]="pastOrder.feedback"></textarea>
                                         </div>
                                     </div>
                                 </div>

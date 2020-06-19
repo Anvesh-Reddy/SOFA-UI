@@ -1,3 +1,5 @@
-export class FoodItems {
-    availableitems: Array<string>;
+export class FoodItem {
+    item_id: number;
+    item_name: string;
+    price: number;
 }
