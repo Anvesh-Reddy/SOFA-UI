@@ -52,4 +52,14 @@ export class VendorDashboardComponent implements OnInit {
     );
   }
 
+  calculateClasses(item) {
+    console.log(item.sentiment);
+    return {
+      'dot': true,
+      'r-dot': item.sentiment == 'negative',
+      'y-dot': item.sentiment == 'neutral',
+      'g-dot': item.sentiment == 'positive'
+  };
+  }
+
 }

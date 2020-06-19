@@ -3,11 +3,11 @@
 <div class="container-fluid">
     <div class="row d-flex flex-row px-4 mb-4" style="height: 288px;">
         <div class="border rounded-radius bg-light shadow mr-auto px-3" style="width: 900px;">
-            <h5 class='py-2'><b>Weekly Forecast</b></h5>
+            <h5 class="pb-2 pt-3"><b>Weekly Forecast</b></h5>
             <app-bar-chart *ngIf="forecastDataLoaded" [graphData]="forecastData"></app-bar-chart>
         </div>
         <div class="border rounded-radius bg-light shadow w-30 ml-auto px-3" style="width: 550px;">
-            <h5 class='py-2'><b>Friday, 30 June 2020</b></h5>
+            <h5 class="pb-2 pt-3"><b>Friday, 30 June 2020</b></h5>
             <div class="row mb-2">
                 <div class="card-deck col-12">
                     <div class="col-6">
@@ -54,7 +54,7 @@
             <div class="container-fluid">
                 <div class="row d-flex flex-row">
                     <div class="col-sm-7 px-0 mr-auto">
-                        <h5 class='py-2'><b>Feedback</b></h5>
+                        <h5 class="pb-2 pt-3"><b>Feedback</b></h5>
                         <app-bar-chart *ngIf="feedbackDataLoaded" [graphData]="feedbackData"></app-bar-chart>
                     </div>
                     <div class="col-sm-4 px-0">
@@ -62,11 +62,12 @@
                             <div class="col-sm-11 border bg-white">
                                 <div class="p-3">
                                     <div class="row justify-content-between h-40">
-                                        <h5>What they said</h5>
-                                        <h5>What they meant</h5>
+                                        <h5>What they said (what we think they meant)</h5>
                                     </div>
                                     <div class="row my-auto h-60" style="overflow-y: auto; max-height: 100px;">
-                                        <p *ngFor="let item of feedbacksList">{{item.feedback}}</p>
+                                        <div class="w-100" *ngFor="let item of feedbacksList">
+                                            <span [ngClass]="calculateClasses(item)"></span> {{item.feedback}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -1,8 +1,6 @@
-<nav class="navbar d-flex justify-content-between" style="width: 100%; background-color: #F5F5F5;">
-    <a class="navbar-brand d-flex p-0 align-items-center" href="#">
-        <!-- <img src="../../../assets/ACS.png" width="auto" height="50" class="d-inline-block align-top" alt=""> -->
-        <!-- <span class="ml-auto m-1 mr-3" style="color: #F7941D;"><fa-icon [icon]="faCogs" size="lg"></fa-icon></span> -->
-        <h2 class="mb-0 font-weight-bold" style="color: #52658C;"><img alt="logoIcon" title="logo" height="40px"
+<nav class="navbar d-flex justify-content-between" style="width: 100%; background-color: #f5f5f552;">
+    <a class="navbar-brand d-flex p-0 align-items-center" href="#">        
+        <h2 class="mb-0 font-weight-bold" style="color: #333;"><img alt="logoIcon" title="logo" height="40px"
             src="assets/logo.png"> Your Smart Ordering Food Assistant!</h2>
     </a>
     <span class="ml-auto m-1 mr-3">
@@ -13,5 +11,5 @@
         src="assets/img_avatar.png"></a>
 </nav>
 <div class="card border-0" style="width: 100%; height: 2px;"></div>
-<app-employee-dashboard *ngIf="!empDashboard"></app-employee-dashboard>
-<app-vendor-dashboard *ngIf="empDashboard"></app-vendor-dashboard>
+<app-employee-dashboard *ngIf="empDashboard"></app-employee-dashboard>
+<app-vendor-dashboard *ngIf="!empDashboard"></app-vendor-dashboard>
