@@ -1,9 +1,8 @@
-<p class="mx-4 my-2"><b>Hi, X AE A-12!</b></p>
+<p class="mx-4 my-4"><b>Hi, X AE A-12!</b></p>
 <div class="container-fluid">
     <div class="row justify-content-between" style="height: 547px;">
-        
         <div class="col-sm-6 border rounded-radius-right bg-light shadow">
-            <div class="container-fluid">
+            <div class="container-fluid my-2">
                 <div class="row">
                     <div class="col d-flex align-items-start flex-column" style="height: 500px;">
                         <div class="row">
@@ -12,8 +11,8 @@
                         <div class="row">
                             <p>Select Meal</p>
                             <div class="d-flex flex-row mb-3 col-12">
-                                <button class="btn btn-primary mr-2" [disabled]="categorySelected == 'Lunch'" [class.btn-secondary]="categorySelected == 'Lunch'" (click)="updateCategory('Lunch')" type="button">Lunch</button>
-                                <button class="btn btn-primary ml-2" [disabled]="categorySelected == 'Dinner'" [class.btn-secondary]="categorySelected == 'Dinner'" (click)="updateCategory('Dinner')" type="button">Dinner</button>
+                                <button class="btn mr-2" [disabled]="categorySelected == 'Lunch'" [class.btn-primary]="categorySelected == 'Lunch'" [class.btn-outline-primary]="categorySelected != 'Lunch'" (click)="updateCategory('Lunch')" type="button">Lunch</button>
+                                <button class="btn ml-2" [disabled]="categorySelected == 'Dinner'" [class.btn-primary]="categorySelected == 'Dinner'" [class.btn-outline-primary]="categorySelected != 'Dinner'" (click)="updateCategory('Dinner')" type="button">Dinner</button>
                             </div>
                         </div>
                         <div class="row mb-auto w-100">
@@ -62,8 +61,13 @@
                     <div class="row">
                         <p>You ate 500 Rs/- worth of free food</p>
                     </div>
-                    <div class="row mt-auto">
-                        <button class="btn btn-outline-success btn-sm" (click)="performPaymentAlert()"><b>PAY UP!</b></button>
+                    <div class="mt-auto d-flex flex-row align-items-center">
+                        <div class="col-6 p-0">
+                            <button class="btn btn-outline-success btn-sm" (click)="performPaymentAlert()"><b>PAY UP!</b></button>
+                        </div>
+                        <div class="col-6 p-0">
+                            <img class="img-size2" style="transform:rotateY(180deg);" src="assets/bermuda-payment-processed.png" alt="Card image cap">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,8 +76,13 @@
                     <div class="row">
                         <h3 class='py-2'><b>Announcements</b></h3>
                     </div>
-                    <div class="row">
-                        <p>Happy Birthday!</p>
+                    <div class="row d-flex h-100">
+                        <div class="col-8 p-0 my-auto">
+                            <img class="img-size3" src="assets/Announcements.png" alt="Card image cap">
+                        </div>
+                        <div class="col-4 p-0">
+                            <p>Happy Birthday!</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,7 +90,7 @@
         <div class="col-sm-3 border rounded-radius-left bg-light shadow">
             <div class="container-fluid">
                 <div class="row ml-2 my-2">
-                    <h3 class='py-2'><b>Past Orders</b></h3>
+                    <h3 class='py-2 my-2'><b>Past Orders</b></h3>
                     <div class="d-flex flex-column col-12" style="overflow-y: auto; height: 440px;">
                         <div class="card-deck">
                             <div class="row w-100 mb-2" *ngFor="let pastOrder of pastOrders">
