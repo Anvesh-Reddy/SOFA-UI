@@ -12,16 +12,10 @@ export class VendorDashboardComponent implements OnInit {
   feedbackData = {};
   forecastDataLoaded = false;
   feedbackDataLoaded = false;
+  feedbacksList = [];
   constructor(private orderDetailsService: OrderDetailsService) { }
 
-  ngOnInit() {    
-    
-    // this.forecastData['barChartLabels'] = ['2020-06-20', '2020-06-21', '2020-06-22','2020-06-23','2020-06-24'];
-    // this.forecastData['barChartData'] = [
-    //   { data: [65, 59, 80, 81,105], label: 'Chicken Biryani' },
-    //   { data: [28, 48, 40, 19, 65], label: 'Fried Rice' },
-    //   { data: [28, 48, 34, 65, 26], label: 'Egg Biryani' }
-    // ];
+  ngOnInit() {  
     this.getForecastData();
 
     this.feedbackData['barChartLabels'] = ['Chicken Biryani', 'Mutton Biryani', 'Fried Rice','Rice Combo','Pulao'];
@@ -31,6 +25,8 @@ export class VendorDashboardComponent implements OnInit {
       { data: [28, 48, 23, 43, 29], label: 'Sad' }
     ];
     this.feedbackDataLoaded = true;
+
+    this.getFeedbackComments();
   }
 
   getForecastData() {
@@ -42,6 +38,16 @@ export class VendorDashboardComponent implements OnInit {
         this.forecastData['barChartData'] = output[1].splice(0,10);               
         this.forecastDataLoaded = true;
         console.log(this.forecastData);
+      }
+    );
+  }
+
+  getFeedbackComments() {
+    this.orderDetailsService.getFeedbackComments().subscribe(
+      (data) => {
+        console.log(data);
+        this.feedbacksList = data['feedbacks'];
+        console.log(this.feedbacksList);
       }
     );
   }
