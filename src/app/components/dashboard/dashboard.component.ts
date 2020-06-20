@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { ReminderComponent } from './../reminder/reminder.component';
+import { Component, OnInit, OnChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -8,7 +9,7 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  @ViewChild('reminderModal', {static: false}) reminderModal: ReminderComponent;
   empDashboard = true;
   constructor(private router: Router, private comService: CommonService) { }
 
@@ -22,6 +23,10 @@ export class DashboardComponent implements OnInit {
 
   goToLoginPage() {
     this.router.navigate(['/login']);
+  }
+
+  openReminderModal() {
+    this.reminderModal.open();
   }
 
 }

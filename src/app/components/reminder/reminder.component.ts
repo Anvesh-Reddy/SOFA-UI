@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-reminder',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reminder.component.scss']
 })
 export class ReminderComponent implements OnInit {
-
-  constructor() { }
+  @ViewChild('content', {static: false}) content: any;
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+  }
+
+  open() {
+    this.modalService.open(this.content, {size: 'lg'});
   }
 
 }
