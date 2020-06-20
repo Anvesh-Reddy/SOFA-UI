@@ -52,8 +52,7 @@ export class VendorDashboardComponent implements OnInit {
     );
   }
 
-  calculateClasses(item) {
-    console.log(item.sentiment);
+  calculateClasses(item) {    
     return {
       'dot': true,
       'r-dot': item.sentiment == 'negative',
