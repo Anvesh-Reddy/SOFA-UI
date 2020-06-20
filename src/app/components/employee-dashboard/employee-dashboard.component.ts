@@ -3,7 +3,7 @@ import { FoodItem } from './../../models/food-items';
 import { PastOrder } from './../../models/past-orders';
 import { OrderDetailsService } from './../../services/order-details.service';
 import { Component, OnInit } from '@angular/core';
-import { faPlusCircle, faSmile, faFrown, faMeh } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faSmile, faFrown, faMeh, faStar } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,10 +16,12 @@ export class EmployeeDashboardComponent implements OnInit {
   faSmile = faSmile;
   faFrown = faFrown;
   faMeh = faMeh;
+  faStar = faStar;
   categorySelected = null;
   userId = 1046;
   foodItems: Array<FoodItem>;
   pastOrders: PastOrder[];
+  foodRecommendations: Array<string>;
   constructor(private orderDetailsService: OrderDetailsService) { }
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class EmployeeDashboardComponent implements OnInit {
       (data) => {
         this.foodItems = data['availableItems'] as Array<FoodItem>;
         console.log(this.foodItems);
+        this.getFoodRecommendations();
       }
     );
   }
@@ -44,6 +47,22 @@ export class EmployeeDashboardComponent implements OnInit {
         console.log(this.pastOrders);
       }
     );
+  }
+
+  getFoodRecommendations() {
+    this.orderDetailsService.getRecommendedFoodItems(this.userId, this.categorySelected).subscribe(
+      (data) => {
+        this.foodRecommendations = data['food_list'] as Array<string>;
+        console.log(this.foodRecommendations);
+        if (this.foodRecommendations.length === 0) {
+          this.foodRecommendations.push('Chicken Biryani');
+        }
+      }
+    );
+  }
+
+  isRecommeded(item: string) {
+    return this.foodRecommendations.filter(x => x === item).length > 0 ? true : false;
   }
 
   saveFeedback(pastOrder: PastOrder) {
@@ -120,13 +139,11 @@ export class EmployeeDashboardComponent implements OnInit {
     });
   }
 
-  showOrderPlacedAlert() {
+  showOrderPlacedAlert(item: string) {
     Swal.fire({
       title: 'Sweet!',
-      text: 'Press OK to confirm and place the order.',
+      text: 'Press OK to confirm and place your order on ' + item + '.',
       imageUrl: 'assets/food_items/chicken_biryani.jpg',
-      imageWidth: 320,
-      imageHeight: 250,
       imageAlt: 'Custom image',
     }).then(() => {
       this.orderPlacedAlert();

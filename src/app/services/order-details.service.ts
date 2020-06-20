@@ -22,8 +22,8 @@ export class OrderDetailsService {
     return this.http.get(this.apiUrl + 'get_ava_food?order_cat=' + order_cat.toString(), httpOptions);
   }
 
-  getRecommendedFoodItems(userId: any, currentDate: any) {
-    return this.http.post(this.apiUrl + 'get_recom_food', {user_id: userId, date: currentDate}, httpOptions);
+  getRecommendedFoodItems(userId: any, orderCategory: string) {
+    return this.http.post(this.apiUrl + 'get_recom_food', {user_id: userId, order_category: orderCategory, date: null}, httpOptions);
   }
 
   getRatedFoodItems(userId: any, currentDate: any) {
