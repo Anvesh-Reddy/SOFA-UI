@@ -42,7 +42,7 @@
                     <h6>What they said (what we think they meant)</h6>
                     <div class="row my-auto px-3" style="overflow-y: auto; max-height: 26vh;">
                         <div class="w-100" *ngFor="let item of feedbacksList">
-                            <span [ngClass]="calculateClasses(item)"></span> {{item.feedback}}
+                            <span [ngClass]="calculateClasses(item)" title="{{item.sentiment}}"></span> {{item.feedback}}
                         </div>
                     </div>
                 </div>

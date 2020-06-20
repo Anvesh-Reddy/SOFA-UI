@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router, private comService: CommonService) { }
 
   ngOnInit() {
-    if (this.comService.getCreds() === 'v') {
+    if (this.comService.getCreds() === 'vendor') {
       this.empDashboard = false;
     } else {
       this.empDashboard = true;
