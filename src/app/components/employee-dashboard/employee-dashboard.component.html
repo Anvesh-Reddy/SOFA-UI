@@ -1,0 +1,134 @@
+<h4 class="mx-4 my-4">Hi, X AE A-12!</h4>
+<!-- <p class="mx-4 my-4"><b></b></p> -->
+<div class="container-fluid">
+    <div class="row justify-content-between" style="height: 75vh;">
+        <div class="col-sm-6 border rounded-radius-right bg-light shadow">
+            <div class="container-fluid my-2">
+                <div class="row">
+                    <div class="col d-flex align-items-start flex-column" style="height: 500px;">
+                        <div class="row">
+                            <h5 class='py-2'>Place Order</h5>
+                        </div>
+                        <div class="row">
+                            <p>Select Meal</p>
+                            <div class="d-flex flex-row mb-3 col-12">
+                                <button class="btn mr-2" [disabled]="categorySelected == 'Lunch'" [class.btn-primary]="categorySelected == 'Lunch'" [class.btn-outline-primary]="categorySelected != 'Lunch'" (click)="updateCategory('Lunch')" type="button">Lunch</button>
+                                <button class="btn ml-2" [disabled]="categorySelected == 'Dinner'" [class.btn-primary]="categorySelected == 'Dinner'" [class.btn-outline-primary]="categorySelected != 'Dinner'" (click)="updateCategory('Dinner')" type="button">Dinner</button>
+                            </div>
+                        </div>
+                        <div class="row mb-auto w-100">
+                            <p>Select Item</p>
+                            <div class="col-12" style="overflow-y: auto; height: 340px;">
+                                <div class="card-deck">
+                                    <div class="row w-100 justify-content-between mb-2">
+                                        <div class="col-6 mb-2" *ngFor="let foodItem of foodItems; let i = index">
+                                            <div class="card p-2 h-100">
+                                                <!-- <div *ngIf="foodItem.item_name == 'Chicken Biryani'" class="row" style="position: relative; margin-top:2px;">
+                                                    <div class="col-4">
+                                                        <span class="badge badge-primary">Best Seller #1</span>
+                                                    </div>
+                                                </div> -->
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
+                                                    </div>
+                                                    <div class="col-6 p-0">
+                                                        <div class="card-body p-0">
+                                                            <h5 class="card-title">{{foodItem.item_name}}</h5>
+                                                            <p class="p-0 m-0">Price: {{foodItem.price}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-1 mx-auto p-0 d-flex flex-column">
+                                                        <div class="mb-auto"><span id="createNewIcon" *ngIf="foodRecommendations?.indexOf(foodItem?.item_name) > -1" style="color:gold;"><fa-icon [icon]="faStar" size='md' title="Recommended Item"></fa-icon></span></div>
+                                                        <div class="ml-auto" type="button" (click)="showOrderPlacedAlert(foodItem.item_name)"><span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-2 d-flex flex-column">
+            <div class="row border rounded-radius mb-auto bg-light shadow" style="height: 268px;">
+                <div class="container-fluid m-4 d-flex flex-column">
+                    <div class="row">
+                        <h5 class=''>Due Amount</h5>
+                    </div>
+                    <div class="row">
+                        <p>You ate 500 Rs/- worth of free food</p>
+                    </div>
+                    <div class="mt-auto d-flex flex-row align-items-center">
+                        <div class="col-6 p-0">
+                            <button class="btn btn-outline-success btn-sm" (click)="performPaymentAlert()"><b>PAY UP!</b></button>
+                        </div>
+                        <div class="col-6 p-0">
+                            <img class="img-size2" style="transform:rotateY(180deg);" src="assets/bermuda-payment-processed.png" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row border rounded-radius mt-auto bg-light shadow" style="height: 268px;">
+                <div class="container-fluid m-4 d-flex flex-column">
+                    <div class="row">
+                        <h5>Announcements</h5>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <p>Happy Birthday!</p>
+                        </div>
+                    </div>
+                    <div class="row mt-auto">
+                        <div class="mt-auto">
+                            <img class="img-size3" src="assets/Announcements.png" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 border rounded-radius-left bg-light shadow">
+            <div class="container-fluid">
+                <div class="row ml-2 my-2">
+                    <h5 class='py-2 my-2'>Past Orders</h5>
+                    <div class="d-flex flex-column col-12" style="overflow-y: auto; height: 440px;">
+                        <div class="card-deck">
+                            <div class="row w-100 mb-2" *ngFor="let pastOrder of pastOrders">
+                                <div class="card col-12 h-100">
+                                    <div class="row h-50 p-2">
+                                        <div class="col-4 p-0">
+                                            <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
+                                        </div>
+                                        <div class="col-8 p-0">
+                                            <div class="card-body p-0">
+                                                <h5 class="card-title">{{pastOrder.item_name}}</h5>
+                                                <p class="p-0 m-0">DOP: {{pastOrder.order_date}}</p>
+                                                <p class="p-0 m-0">Price: {{pastOrder.price}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row h-50 px-2">
+                                        <div class="col-12 mb-2">
+                                            <div class="row d-flex flex-row mx-1 mb-1">
+                                                <span class="mx-1" id="happy" (click)="updateRating(3, pastOrder.order_id)" [style.color]="pastOrder.rating == 3? 'green':'silver'"><fa-icon [icon]="faSmile" size='lg' title="Happy"></fa-icon></span>
+                                                <span class="mx-1" id="meh" (click)="updateRating(2, pastOrder.order_id)" [style.color]="pastOrder.rating == 2? 'orange':'silver'"><fa-icon [icon]="faMeh" size='lg' title="Meh"></fa-icon></span>
+                                                <span class="mx-1 mr-auto" id="sad" (click)="updateRating(1, pastOrder.order_id)" [style.color]="pastOrder.rating == 1? 'red':'silver'"><fa-icon [icon]="faFrown" size='lg' title="Sad"></fa-icon></span>
+                                                <button class="btn btn-sm btn-primary" (click)="saveFeedback(pastOrder)">Save</button>
+                                            </div>
+                                            <textarea class="form-control" [(ngModel)]="pastOrder.feedback"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

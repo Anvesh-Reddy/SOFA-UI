@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center p-4 m-4">
+    <div class="col">
+        <img src="assets/login.svg" class="splash-img">
+    </div>
+    <div class="col">
+        <div class="d-flex justify-content-center">
+            <!-- <div></div> -->
+            <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="form-signin w-50 text-center">
+                <img class="mb-4" src="assets/logo.png" width="72px" height="72px">
+                <h1 class="h3 mb-3 font-weight-normal text-white">Please Sign in</h1>
+                <label for="inputEmail" class="sr-only">User Id</label>
+                <input type="text" id="inputEmail" name="userId" [(ngModel)]="userId" class="form-control mb-2" placeholder="User Id" required=""
+                    autofocus="" >
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control mb-2" placeholder="Password" required="">                
+                <button class="btn btn-lg btn-block" type="submit" style="background-color:#ea472c; color: white">Sign in</button>                
+            </form>
+        </div>
+
+    </div>
+</div>

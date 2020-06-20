@@ -1,0 +1,40 @@
+.rounded-radius-right {
+    border-radius: 0px 50px 50px 0px;
+}
+
+.rounded-radius {
+    border-radius: 20px;
+}
+
+.rounded-radius-left {
+    border-radius: 50px 0px 0px 50px;
+}
+
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05) !important;
+}
+
+.img-size {
+    width: 100px;
+    height: 100px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.r-dot {
+    background-color: #ff0000;
+}
+
+.y-dot {
+    background-color: #ffeb00;
+}
+
+.g-dot {
+    background-color: #34a717;
+}

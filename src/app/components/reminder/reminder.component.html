@@ -1,0 +1,96 @@
+<ng-template #content let-modal>
+    <div class="modal-header" style="background-color: #4e73b9;">
+        <h4 class="modal-title text-white">Order Reminder</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Weekdays</th>
+                    <th scope="col">Lunch</th>
+                    <th scope="col">Dinner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="mon">
+                            <label class="custom-control-label" for="mon">Monday</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 1">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="tue">
+                            <label class="custom-control-label" for="tue">Tuesday</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 1">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="wed">
+                            <label class="custom-control-label" for="wed">Wednesday</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 1">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="thu">
+                            <label class="custom-control-label" for="thu">Thursday</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 1">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="fri">
+                            <label class="custom-control-label" for="fri">Friday</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 1">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control w-25" placeholder="Select time 2">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <th><button type="button" class="btn btn-primary">Set Reminder</button></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>

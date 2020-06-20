@@ -1,0 +1,32 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.splash-container {
+    visibility: visible;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    transition: visibility 0.5s, opacity 0.5s linear;
+}
+.splash-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.splashTrans {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.bg-sofa {
+    background: rgb(234,71,44);
+    background: linear-gradient(45deg, rgba(234,71,44,1) 0%, rgba(241,197,23,1) 50%);
+}
