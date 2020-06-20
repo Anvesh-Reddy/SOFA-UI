@@ -28,7 +28,7 @@
                                                         <span class="badge badge-primary">Best Seller #1</span>
                                                     </div>
                                                 </div> -->
-                                                <div class="row align-items-center">
+                                                <div class="row">
                                                     <div class="col-4">
                                                         <img class="card-img-left img-thumbnail img-size" src="assets/food_items/chicken_biryani.jpg" alt="Card image cap">
                                                     </div>
@@ -38,8 +38,9 @@
                                                             <p class="p-0 m-0">Price: {{foodItem.price}}</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-1 p-0">
-                                                        <div type="button" (click)="showOrderPlacedAlert()" ><span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span></div>
+                                                    <div class="col-1 mx-auto p-0 d-flex flex-column">
+                                                        <div class="mb-auto"><span id="createNewIcon" *ngIf="isRecommeded(foodItem.item_name)" style="color:gold;"><fa-icon [icon]="faStar" size='md' title="Recommended Item"></fa-icon></span></div>
+                                                        <div class="ml-auto" type="button" (click)="showOrderPlacedAlert(foodItem.item_name)"><span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span></div>
                                                     </div>
                                                 </div>
                                             </div>
