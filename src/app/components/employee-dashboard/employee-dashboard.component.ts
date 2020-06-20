@@ -55,14 +55,18 @@ export class EmployeeDashboardComponent implements OnInit {
         this.foodRecommendations = data['food_list'] as Array<string>;
         console.log(this.foodRecommendations);
         if (this.foodRecommendations.length === 0) {
-          this.foodRecommendations.push('Chicken Biryani');
+          this.foodRecommendations.push(this.foodItems[0].item_name);
         }
       }
     );
   }
 
   isRecommeded(item: string) {
-    return this.foodRecommendations.filter(x => x === item).length > 0 ? true : false;
+    if (this.foodRecommendations.length > 0) {
+      return this.foodRecommendations.filter(x => x === item).length > 0 ? true : false;
+    } else {
+      return false;
+    }
   }
 
   saveFeedback(pastOrder: PastOrder) {

@@ -39,7 +39,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-1 mx-auto p-0 d-flex flex-column">
-                                                        <div class="mb-auto"><span id="createNewIcon" *ngIf="isRecommeded(foodItem.item_name)" style="color:gold;"><fa-icon [icon]="faStar" size='md' title="Recommended Item"></fa-icon></span></div>
+                                                        <div class="mb-auto"><span id="createNewIcon" *ngIf="foodRecommendations?.indexOf(foodItem?.item_name) > -1" style="color:gold;"><fa-icon [icon]="faStar" size='md' title="Recommended Item"></fa-icon></span></div>
                                                         <div class="ml-auto" type="button" (click)="showOrderPlacedAlert(foodItem.item_name)"><span id="createNewIcon" style="color: #52658C;"><fa-icon [icon]="faPlusCircle" size='lg' title="place order"></fa-icon></span></div>
                                                     </div>
                                                 </div>
