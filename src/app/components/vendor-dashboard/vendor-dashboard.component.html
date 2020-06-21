@@ -8,23 +8,14 @@
         </div>
         <div class="border rounded-radius bg-light shadow p-3" style="width: 35vw;">
             <h5 class="pb-2"><b>Friday, 19 June 2020</b></h5>
-            <div class="row">
-                <div class="col-6">
+            <div class="row" style="overflow-y: auto; max-height: 30vh;">
+                <div class="col-6" *ngFor="let item of foodItems">
                     <div class="card p-2 mb-2">
-                        <h5>12</h5>
-                        <h6>Veg Biryani</h6>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card p-2 mb-2">
-                        <h5>14</h5>
-                        <h6>Chicken Biryani</h6>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card p-2">
-                        <h5>10</h5>
-                        <h6>Chicken Fry Combo</h6>
+                        <h5>
+                            <span>{{item.orderCount}}</span>
+                            <span class="text-warning"> ({{item.forecastCount}})</span>
+                        </h5>
+                        <h6>{{item.item_name}}</h6>
                     </div>
                 </div>
             </div>
@@ -42,7 +33,8 @@
                     <h6>What they said (what we think they meant)</h6>
                     <div class="row my-auto px-3" style="overflow-y: auto; max-height: 26vh;">
                         <div class="w-100" *ngFor="let item of feedbacksList">
-                            <span [ngClass]="calculateClasses(item)" title="{{item.sentiment}}"></span> {{item.feedback}}
+                            <span [ngClass]="calculateClasses(item)" title="{{item.sentiment}}"></span>
+                            {{item.feedback}}
                         </div>
                     </div>
                 </div>

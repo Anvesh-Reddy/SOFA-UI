@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.showSplash = false;
-    }, 2000);
+    }, 3000);
     // document.getElementByID('splash').style.display = 'none';
     // console.log(this.myDiv.nativeElement.innerHTML);
   }
